@@ -1,0 +1,14 @@
+.container{
+  margin-top:10px;
+  display:flex;
+}
+
+#text{
+  resize: none;
+  width:300px;
+  min-width: 50px;
+}
+
+#copybtnlbl{
+  width:100px;
+}
