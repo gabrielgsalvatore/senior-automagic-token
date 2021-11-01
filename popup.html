@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
+
+<head>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container-1">
+    <label for="tenant">Tenant:</label>
+    <span id="tenant"></span>
+  </div>
+  <div class="container-1">
+    <label for="user">User:</label>
+    <span id="user"></span>
+  </div>
+  <div class="container">
     <label id="copybtnlbl" for="bearer_check">Remover Bearer</label>
-     <input type="checkbox" id="bearer_check" >
-    </div>
-    <div class="container">
-        <textarea id="text"></textarea>
-    </div>
-    <div class="container">
-        <button id="copybtn">Copiar</button>
-    </div>
-    <script src="popup.js"></script>
-  </body>
+    <input type="checkbox" id="bearer_check">
+  </div>
+  <div class="container-text">
+    <textarea id="text" readonly></textarea>
+  </div>
+  <div class="container">
+    <button id="copybtn">Copiar</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
 </html>
