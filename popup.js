@@ -1,5 +1,9 @@
-function searchBearerToken() {
+var currentCookieStore;
+
+function searchBearerToken(currentCookieStore) {
+    console.log(currentCookieStore);
     chrome.cookies.get({
+        storeId: currentCookieStore,
         url: "https://www.platform.senior.com.br",
         name: "com.senior.pau.token"
     }, function(cookie) {
@@ -14,8 +18,25 @@ function searchBearerToken() {
     });
 }
 
-function searchUserAndTenant() {
+async function getCurrentCookieStore() {
+    var currentCookieStore;
+    var allCookies = await chrome.cookies.getAllCookieStores();
+    var allTabs = await chrome.tabs.query({ active: true, currentWindow: true });
+    var currentTab = allTabs[0].id;
+    for (var windows = 0; windows < allCookies.length; windows++) {
+        for (var tabs = 0; tabs < allCookies[windows].tabIds.length; tabs++) {
+            if (allCookies[windows].tabIds[tabs] === currentTab) {
+                currentCookieStore = allCookies[windows].id;
+                return currentCookieStore;
+            }
+        }
+    }
+
+}
+
+function searchUserAndTenant(currentCookieStore) {
     chrome.cookies.get({
+        storeId: currentCookieStore,
         url: "https://www.platform.senior.com.br",
         name: "com.senior.pau.token"
     }, function(cookie) {
@@ -29,8 +50,9 @@ function searchUserAndTenant() {
     });
 }
 
-function searchToken() {
+function searchToken(currentCookieStore) {
     chrome.cookies.get({
+        storeId: currentCookieStore,
         url: "https://www.platform.senior.com.br",
         name: "com.senior.pau.token"
     }, function(cookie) {
@@ -48,11 +70,12 @@ function searchToken() {
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("copybtn").addEventListener("click", copyText);
     const checkBearer = document.getElementById("bearer_check");
-    checkBearer.addEventListener("change", function() {
+    checkBearer.addEventListener("change", async function() {
+        this.currentCookieStore = await getCurrentCookieStore();
         if (checkBearer.checked) {
-            searchToken();
+            searchToken(this.currentCookieStore);
         } else {
-            searchBearerToken();
+            searchBearerToken(this.currentCookieStore);
         }
     });
 });
@@ -67,7 +90,8 @@ function copyText() {
     navigator.clipboard.writeText(copyText.value);
 }
 
-window.onload = function() {
-    searchBearerToken();
-    searchUserAndTenant();
+window.onload = async function() {
+    this.currentCookieStore = await getCurrentCookieStore();
+    searchBearerToken(this.currentCookieStore);
+    searchUserAndTenant(this.currentCookieStore);
 }
