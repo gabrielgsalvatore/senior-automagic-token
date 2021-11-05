@@ -9,6 +9,6 @@ Digite chrome://extensions/ no navegador para ir a aba de extensões, habilite o
 
 Segunda forma, Utizando o .crx:
 
-Digite chrome://extensions/ no navegador para ir a aba de extensões, dentro da pasta do projeto, na subpasta "releases" vai ter o arquivo compactado .crx da extensão, puxe e arraste esse arquivo do seu explorer até a aba do chrome de extensões para instalar. Essa forma de instalação não funciona normalmente, pois a extensão não é registrada na loja do chrome, uma alternativa é adicionar a flag –enable-easy-off-store-extension-install nas propriedades do launcher de atalho do seu chrome.
+Digite chrome://extensions/ no navegador para ir a aba de extensões, dentro da pasta do projeto, na subpasta "releases" vai ter o arquivo compactado .crx da extensão, puxe e arraste esse arquivo do seu explorer até a aba do chrome de extensões para instalar. Essa forma de instalação não funciona normalmente, pois a extensão não é registrada na loja do chrome, uma alternativa é adicionar a flag –enable-easy-off-store-extension-install nas propriedades do launcher de atalho do seu chrome (não testado).
 
 
