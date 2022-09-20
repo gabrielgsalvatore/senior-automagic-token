@@ -1,7 +1,7 @@
 {
     "name": "SENIOR Automagic Token",
     "description": "Automagically gets the user's bearer token",
-    "version": "1.1",
+    "version": "1.2",
     "manifest_version": 3,
     "permissions": ["storage", "cookies"],
     "host_permissions": [
