@@ -5,10 +5,10 @@ function searchBearerToken(currentCookieStore) {
     chrome.cookies.get({
         storeId: currentCookieStore,
         url: "https://www.platform.senior.com.br",
-        name: "com.senior.pau.token"
+        name: "com.senior.token"
     }, function(cookie) {
         if (cookie) {
-            var parsedCookie = JSON.parse(JSON.parse(cookie.value));
+            var parsedCookie = JSON.parse(decodeURIComponent(cookie.value))
             const bearerToken = "Bearer " + parsedCookie.access_token;
             document.getElementById("text").innerHTML = bearerToken;
 
@@ -38,10 +38,10 @@ function searchUserAndTenant(currentCookieStore) {
     chrome.cookies.get({
         storeId: currentCookieStore,
         url: "https://www.platform.senior.com.br",
-        name: "com.senior.pau.token"
+        name: "com.senior.token"
     }, function(cookie) {
         if (cookie) {
-            var parsedCookie = JSON.parse(JSON.parse(cookie.value));
+            var parsedCookie = JSON.parse(decodeURIComponent(cookie.value))
             const user = parsedCookie.username.split('@')[0];
             const tenant = parsedCookie.username.split('@')[1];
             document.getElementById("tenant").innerHTML = tenant;
@@ -54,10 +54,10 @@ function searchToken(currentCookieStore) {
     chrome.cookies.get({
         storeId: currentCookieStore,
         url: "https://www.platform.senior.com.br",
-        name: "com.senior.pau.token"
+        name: "com.senior.token"
     }, function(cookie) {
         if (cookie) {
-            var parsedCookie = JSON.parse(JSON.parse(cookie.value));
+            var parsedCookie = JSON.parse(decodeURIComponent(cookie.value))
             const bearerToken = parsedCookie.access_token;
             document.getElementById("text").innerHTML = bearerToken;
 
