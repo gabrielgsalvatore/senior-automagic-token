@@ -1,0 +1,38 @@
+.container {
+    margin-top: 10px;
+    display: flex;
+}
+
+.container-1 {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.container-text {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.container-1 span {
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: whitesmoke;
+}
+
+#text {
+    resize: none;
+    width: 300px;
+    min-width: 50px;
+}
+
+#copybtnlbl {
+    width: 100px;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+}
