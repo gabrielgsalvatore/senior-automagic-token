@@ -90,7 +90,9 @@ function copyText() {
     navigator.clipboard.writeText(copyText.value);
 }
 
-window.onload = async function() {
+window.addEventListener("load", startup, false);
+
+async function startup() {
     this.currentCookieStore = await getCurrentCookieStore();
     searchBearerToken(this.currentCookieStore);
     searchUserAndTenant(this.currentCookieStore);
